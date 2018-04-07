@@ -65,3 +65,8 @@ to run the experiment!
 All log files and threshold estimates will be saved in the `Data` subdirectory
 of the `pytaste` folder. Similarly, figures will be saved to the `Figures`
 folder.
+
+## Citing
+If you publish research based on this software, please cite the following publication:
+> Richard Höchenberger & Kathrin Ohla (2017): Rapid Estimation of Gustatory Sensitivity Thresholds with SIAM and QUEST. _Frontiers in Psychology,_ 8:981. https://doi.org/10.3389/fpsyg.2017.00981
+
