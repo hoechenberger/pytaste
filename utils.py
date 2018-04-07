@@ -326,7 +326,10 @@ def gen_visual_stimuli(win):
                                      alignVert='top', wrapWidth=80)
     present_conc = visual.TextStim(win, pos=(0, 0.3), bold=True,
                                    wrapWidth=80)
+
+    msg = 'Did the participant recognize this concentration? [Y/N]'
     detection_response = visual.TextStim(win, pos=(0, -0.3), bold=True,
+                                         text=msg,
                                          alignVert='bottom', wrapWidth=80)
     estimated_threshold = visual.TextStim(win)
     quit = visual.TextStim(win, pos=(0, -0.55),

@@ -26,7 +26,7 @@ logging.console.setLevel(logging.WARNING)
 
 
 win = visual.Window(fullscr=False, screen=0, allowGUI=True, color=[0, 0, 0])
-
+vis_stimuli = gen_visual_stimuli(win)
 
 min_trials = 10
 previous_concentration = None
@@ -50,10 +50,6 @@ exp_handler = data.ExperimentHandler(extraInfo=exp_info,
                                          path['base_filename']))
 exp_handler.addLoop(quest_handler)
 
-vis_stimuli = gen_visual_stimuli(win)
-msg = 'Did the participant recognize this concentration? [Y/N]'
-vis_stimuli['detection_response'].setText(msg)
-
 for concentration_proposed in quest_handler:
     trial_number = quest_handler.thisTrialN + 1  # QuestHandler counts from 0.
 
@@ -65,7 +61,6 @@ for concentration_proposed in quest_handler:
     concentration = find_nearest(concentration_steps, concentration_proposed)
 
     # If the concentration we selected is equal to the one previously presented ...
-    #
     if concentration == previous_concentration:
         idx_previous_conc = get_bottle_index(concentration_steps,
                                              previous_concentration)
@@ -103,14 +98,12 @@ for concentration_proposed in quest_handler:
                         vis_stimuli['quit']]]
     win.flip()
 
-    # Wait for keypress
-    #
+    # Wait for response.
     event.clearEvents()
     keys = event.waitKeys(keyList=['y', 'n', 'q'])
 
     # We got a response. Clear the screen and wait for a short while
     # (so the user will actually notice the keypress was recognized).
-
     win.flip()
     core.wait(0.5)
 
@@ -123,7 +116,6 @@ for concentration_proposed in quest_handler:
         core.quit()
 
     quest_handler.addResponse(int(detection_successful), intensity=concentration)
-
     previous_concentration = concentration
     previous_detection_successful = detection_successful
 
@@ -138,7 +130,7 @@ for concentration_proposed in quest_handler:
                                10**concentration_proposed)
     exp_handler.nextEntry()
 
-# Estimate, save and display the threshold
+# Estimate, save and display the threshold.
 result = pd.DataFrame({'Participant': exp_info['Participant'],
                        'Substance':   exp_info['Substance'],
                        'Threshold':   [10**quest_handler.mean()]})
@@ -164,4 +156,3 @@ win.flip()
 
 event.waitKeys(keyList=['q'])
 core.quit()
-
