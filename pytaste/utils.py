@@ -43,7 +43,7 @@ def gen_paths(exp_info):
     dict : path
 
     """
-    base_dir = os.path.join(os.path.split(__file__)[0])
+    base_dir = os.path.join(os.path.split(__file__)[0], os.path.pardir)
     data_dir = os.path.join(base_dir, 'Data')
     rawdata_dir = os.path.join(data_dir, 'Raw')
     fig_dir = os.path.join(base_dir, 'Figures')
