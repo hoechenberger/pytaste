@@ -2,6 +2,10 @@
 
 Taste threshold estimation based on a QUEST algorithm.
 
+## Important information
+
+We are still finishing up the software and the installation procedure. Please bear with us while we prepare a fresh release shortly after AChemS XL. If you would like to get in touch, please drop me a message at `richard.hoechenberger@gmail.com`.
+
 ## Installation
 
 The software depends on [PsychoPy](http://www.psychopy.org) (which itself 
