@@ -1,4 +1,4 @@
-conda env create -n pytaste -f pytaste\conda\environment_win.yml
-activate pytaste
-pip install --no-deps psychopy==1.90.1
-deactivate
+call conda env create -n pytaste -f pytaste\conda\environment_win.yml
+call activate pytaste
+call pip install --no-deps psychopy==1.90.1
+call deactivate
